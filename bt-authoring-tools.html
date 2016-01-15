@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dynamic Forms Tester</title>
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <h1>This is not the form creator you are looking for</h1>
+
+    <form id="bfat-builder-form"></form>
+
+    <form id="results">
+      <label>Output<br>
+        <textarea id="output"></textarea>
+      </label>
+      <div id="example-form"></div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/bt-form-authoring-tools.js"></script>
+    <script type="text/javascript">
+      var options = {
+        fillform: true,
+        outputLocation: '#output'
+      };
+      $('#bfat-builder-form').btFormAuthoringTools( options );
+    </script>
+  </body>
+</html>

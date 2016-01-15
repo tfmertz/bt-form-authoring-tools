@@ -1,0 +1,37 @@
+.submit-button {
+  margin-top: 15px;
+}
+
+#results {
+  margin-top: 30px;
+}
+
+#results textarea {
+  width: 100%;
+  height: 400px;
+}
+
+.bfat-item {
+  position: relative;
+  padding: 10px;
+  padding-left: 35px;
+  background-color: #ccc;
+}
+
+.bfat-item-handle {
+  content: "\f0c9";
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  background-color: black;
+  cursor: move;
+  height: 20px;
+  width: 25px;
+}
+
+.ui-sortable-placeholder {
+  height: 35px;
+  border: 3px dashed #EDBB5F;
+  background: #EDE45F;
+}

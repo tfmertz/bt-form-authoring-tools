@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dynamic Forms Tester</title>
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <h1>This is a form creator.</h1>
+
+    <form id="creation-form">
+      <label>Form Title
+        <input id="form-title" type="text" name="title">
+      </label>
+      <label>Form Description
+        <input id="form-description" type="text" name="description">
+      </label>
+      <div class="form-items">
+        <div class="item">
+          <input type="hidden" class="field-id" name="id" value="1">
+          <label>Field Type
+            <select class="field-type" name="field_type">
+              <option value="text">Text Field</option>
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+              <option value="textarea">Text Area</option>
+            </select>
+          </label>
+          <label>Field Label
+            <input class="field-label" type="text" name="field_label">
+          </label>
+          <label>Field Name
+            <input class="field-name" type="text" name="field_name">
+          </label>
+          <label>
+            <input class="field-required" type="checkbox" name="field_required"> Required?
+          </label>
+          <button id="add-form-item" type="button">Add Form Item</button>
+        </div>
+      </div>
+      <input class="submit-button" type="submit" value="Create Form">
+    </form>
+
+    <form id="results">
+      <label>Output<br>
+        <textarea id="output"></textarea>
+      </label>
+      <div id="example-form"></div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
