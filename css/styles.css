@@ -11,6 +11,10 @@
   height: 400px;
 }
 
+#output {
+  font-family: monospace;
+}
+
 .bfat-item {
   position: relative;
   padding: 10px;
@@ -34,4 +38,13 @@
   height: 35px;
   border: 3px dashed #EDBB5F;
   background: #EDE45F;
+}
+
+.bfat-select-options {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.error {
+  color: red;
 }
