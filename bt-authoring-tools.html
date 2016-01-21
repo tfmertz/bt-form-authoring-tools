@@ -23,7 +23,20 @@
     <script type="text/javascript">
       var options = {
         fillform: true,
-        outputLocation: '#output'
+        outputLocation: '#output',
+        existingObject: {
+          "submit": "Submit",
+          "fields": [
+            {
+              "field_order": "1",
+              "field_label": "first",
+              "field_name": "first",
+              "field_type": "radio_button",
+              "field_required": false,
+              "radio_button_tag_value": "first"
+            }
+          ]
+        }
       };
       $('#bfat-builder-form').btFormAuthoringTools( options );
     </script>
