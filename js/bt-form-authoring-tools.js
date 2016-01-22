@@ -14,22 +14,22 @@
         '<p>Select Options <button class="bfat-add-select-item" type="button">+</button> <button class="bfat-display-select-fields" type="button">Adv Select Options</button></p>'+
         '<div class="bfat-select-item-list">'+
           '<div class="bfat-select-item">'+
-            '<label>Value <input type="text" class="bfat-select-field-value"></label>'+
+            '<label>Value <input type="text" class="bfat-select-field-value"></label> '+
             '<label>Label <input type="text" class="bfat-select-field-label"></label>'+
           '</div>'+
         '</div>'+
-      '</div>'+
-      '<div class="bfat-select-adv-options" style="display:none;">'+
-        '<p>Select HTML Options</p>'+
-        '<div>'+
-          '<label>Select Classes <input type="text" class="bfat-adv-select-classes"></label>'+
-          '<label>Select Attributes <input type="text" class="bfat-adv-select-custom"></label>'+
+        '<div class="bfat-select-adv-options" style="display:none;">'+
+          '<p>Select HTML Options</p>'+
+          '<div>'+
+            '<label>Select Classes <input type="text" class="bfat-adv-select-classes"></label> '+
+            '<label>Select Attributes <input type="text" class="bfat-adv-select-custom"></label>'+
+          '</div>'+
         '</div>'+
       '</div>'+
       '<div class="bfat-adv-field-options" style="display:none;">'+
         '<p>Advanced Field Options</p>'+
         '<div>'+
-          '<label>Classes <input type="text" class="bfat-adv-field-classes"></label>'+
+          '<label>Classes <input type="text" class="bfat-adv-field-classes"></label> '+
           '<label>Custom Attributes <input type="text" class="bfat-adv-field-custom"></label>'+
         '</div>'+
       '</div>'+
