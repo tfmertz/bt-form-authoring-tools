@@ -71,17 +71,17 @@
     });
 
     // Add remove event to first form item
-    $(".bfat-item:last-child .bfat-remove-form-item").click(function() {
+    $(".bfat-remove-form-item").click(function() {
       $(this).parent().remove();
       bfatReorderFormItems();
     });
 
     // Add event for first form item
-    $(".bfat-item:last-child .bfat-add-select-item").click(function() {
+    $(".bfat-add-select-item").click(function() {
       $(this).parent().next().append('<div class="bfat-select-item"><label>Value <input type="text" class="bfat-select-field-value"></label> <label>Label <input type="text" class="bfat-select-field-label"></label> <button class="bfat-remove-select-item" type="button">-</button></div>');
 
       //Remove the select option
-      $(".bfat-select-item:last-child .bfat-remove-select-item").click(function() {
+      $(".bfat-remove-select-item").click(function() {
         $(this).parent().remove();
       });
     });
