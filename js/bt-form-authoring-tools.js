@@ -3,24 +3,20 @@
 
     var selectForm = '<option value="text_field">Text</option><option value="text_area">Text Area</option><option value="number_field">Number</option><option value="check_box">Checkbox</option><option value="radio_button">Radio Button</option><option value="select">Select</option><option value="email_field">Email</option><option value="telephone_field">Phone</option><option value="password_field">Password</option><option value="button">Button</option><option value="hidden_field">Hidden Field</option><option value="search_field">Search Field</option><option value="datetime_local_field">Datetime</option><option value="month_field">Month</option><option value="week_field">Week</option><option value="url_field">URL</option><option value="color_field">Color</option><option value="time_field">Time</option><option value="range_field">Range</option></select>';
 
-    var basicForm = '<label>Form Title <input id="bfat-form-title" type="text" name="title"></label>' +
-    '<label>Form Description <input id="bfat-form-description" type="text" name="description"></label>' +
-    '<label>Button Text <input id="bfat-form-button-text" type="text" name="button_text"></label>' +
-    '<button id="bfat-add-form-item" type="button">Add Form Item</button>' +
-    '<div class="bfat-form-items">' +
-      '<div class="bfat-item">' +
-        '<span class="bfat-item-handle"></span><input type="hidden" class="bfat-field-id" name="id" value="1">' +
-        '<label>Field Type <select class="bfat-field-type" name="field_type">'+selectForm+'</select></label>' +
-        '<label>Field Label <input class="bfat-field-label" type="text" name="field_label"></label>' +
-        '<label>Field Name <input class="bfat-field-name" type="text" name="field_name"></label>' +
-        '<label><input class="bfat-field-required" type="checkbox" name="field_required"> Required?</label>' +
-        '<button class="bfat-remove-form-item" type="button">Remove Item</button> <button class="bfat-display-adv-fields" type="button">Adv Fields</button>'+
-        '<div class="bfat-select-options" style="display: none;">'+
-          '<p>Select Options <button class="bfat-add-select-item" type="button">+</button> <button class="bfat-display-select-fields" type="button">Adv Select Options</button></p>'+
-          '<div class="bfat-select-item-list">'+
+    var $formItem = $('<div class="bfat-item">' +
+      '<span class="bfat-item-handle"></span><input type="hidden" class="bfat-field-id" name="id" value="1">' +
+      '<label>Field Type <select class="bfat-field-type" name="field_type">'+selectForm+'</select></label> ' +
+      '<label>Field Label <input class="bfat-field-label" type="text" name="field_label"></label> ' +
+      '<label>Field Name <input class="bfat-field-name" type="text" name="field_name"></label> ' +
+      '<label><input class="bfat-field-required" type="checkbox" name="field_required"> Required?</label> ' +
+      '<button class="bfat-remove-form-item" type="button">Remove Item</button> <button class="bfat-display-adv-fields" type="button">Adv Fields</button>'+
+      '<div class="bfat-select-options" style="display: none;">'+
+        '<p>Select Options <button class="bfat-add-select-item" type="button">+</button> <button class="bfat-display-select-fields" type="button">Adv Select Options</button></p>'+
+        '<div class="bfat-select-item-list">'+
           '<div class="bfat-select-item">'+
-          '<label>Value <input type="text" class="bfat-select-field-value"></label>'+
-          '<label>Label <input type="text" class="bfat-select-field-label"></label>'+
+            '<label>Value <input type="text" class="bfat-select-field-value"></label>'+
+            '<label>Label <input type="text" class="bfat-select-field-label"></label>'+
+          '</div>'+
         '</div>'+
       '</div>'+
       '<div class="bfat-select-adv-options" style="display:none;">'+
@@ -30,13 +26,21 @@
           '<label>Select Attributes <input type="text" class="bfat-adv-select-custom"></label>'+
         '</div>'+
       '</div>'+
-    '</div>'+
-    '<div class="bfat-adv-field-options" style="display:none;">'+
-      '<p>Advanced Field Options</p>'+
-      '<div>'+
-        '<label>Classes <input type="text" class="bfat-adv-field-classes"></label>'+
-        '<label>Custom Attributes <input type="text" class="bfat-adv-field-custom"></label>'+
+      '<div class="bfat-adv-field-options" style="display:none;">'+
+        '<p>Advanced Field Options</p>'+
+        '<div>'+
+          '<label>Classes <input type="text" class="bfat-adv-field-classes"></label>'+
+          '<label>Custom Attributes <input type="text" class="bfat-adv-field-custom"></label>'+
+        '</div>'+
       '</div>'+
+    '</div>');
+
+    var basicForm = '<label>Form Title <input id="bfat-form-title" type="text" name="title"></label>' +
+    '<label>Form Description <input id="bfat-form-description" type="text" name="description"></label>' +
+    '<label>Button Text <input id="bfat-form-button-text" type="text" name="button_text"></label>' +
+    '<button id="bfat-add-form-item" type="button">Add Form Item</button>' +
+    '<div class="bfat-form-items">' +
+      $formItem[0].outerHTML+
     '</div>'+
     '<input class="submit-button" type="submit" value="Create Form">';
 
@@ -52,7 +56,7 @@
         options.outputLocation = '#output';
       }
       if( options.hasOwnProperty('existingObject')) {
-        bfatConstructForm(options.existingObject);
+        bfatConstructForm(options.existingObject, $formItem);
       }
     }
 
@@ -240,43 +244,21 @@
     return this;
   };
 
-  var bfatConstructForm = function(fields) {
-    var form = '<label>Form Title <input id="bfat-form-title" type="text" name="title"></label>' +
-    '<label>Form Description <input id="bfat-form-description" type="text" name="description"></label>' +
-    '<label>Button Text <input id="bfat-form-button-text" type="text" name="button_text"></label>' +
-    '<button id="bfat-add-form-item" type="button">Add Form Item</button>' +
-    '<div class="bfat-form-items">' +
-      '<div class="bfat-item">' +
-        '<span class="bfat-item-handle"></span><input type="hidden" class="bfat-field-id" name="id" value="1">' +
-        '<label>Field Type <select class="bfat-field-type" name="field_type">'+selectForm+'</select></label>' +
-        '<label>Field Label <input class="bfat-field-label" type="text" name="field_label"></label>' +
-        '<label>Field Name <input class="bfat-field-name" type="text" name="field_name"></label>' +
-        '<label><input class="bfat-field-required" type="checkbox" name="field_required"> Required?</label>' +
-        '<button class="bfat-remove-form-item" type="button">Remove Item</button> <button class="bfat-display-adv-fields" type="button">Adv Fields</button>'+
-        '<div class="bfat-select-options" style="display: none;">'+
-          '<p>Select Options <button class="bfat-add-select-item" type="button">+</button> <button class="bfat-display-select-fields" type="button">Adv Select Options</button></p>'+
-          '<div class="bfat-select-item-list">'+
-          '<div class="bfat-select-item">'+
-          '<label>Value <input type="text" class="bfat-select-field-value"></label>'+
-          '<label>Label <input type="text" class="bfat-select-field-label"></label>'+
-        '</div>'+
-      '</div>'+
-      '<div class="bfat-select-adv-options" style="display:none;">'+
-        '<p>Select HTML Options</p>'+
-        '<div>'+
-          '<label>Select Classes <input type="text" class="bfat-adv-select-classes"></label>'+
-          '<label>Select Attributes <input type="text" class="bfat-adv-select-custom"></label>'+
-        '</div>'+
-      '</div>'+
-    '</div>'+
-    '<div class="bfat-adv-field-options" style="display:none;">'+
-      '<p>Advanced Field Options</p>'+
-      '<div>'+
-        '<label>Classes <input type="text" class="bfat-adv-field-classes"></label>'+
-        '<label>Custom Attributes <input type="text" class="bfat-adv-field-custom"></label>'+
-      '</div>'+
-    '</div>'+
-    '<input class="submit-button" type="submit" value="Create Form">';
+  var bfatConstructForm = function(object, $formItem) {
+    $('#bfat-form-button-text').val(object.submit);
+    //remove default item added
+    $('.bfat-item').remove();
+
+    $.each(object.fields, function(p, v) {
+      var tempForm = $formItem.clone();
+      $('.bfat-field-id', tempForm).val(v.field_id);
+      $('.bfat-field-type', tempForm).val(v.field_type);
+      $('.bfat-field-label', tempForm).val(v.field_label);
+      $('.bfat-field-name', tempForm).val(v.field_name);
+      $('.bfat-field-required', tempForm).prop("checked", v.field_required);
+      console.log(tempForm);
+      $('.bfat-form-items').append(tempForm);
+    });
   };
 
   var isValidJSON = function(obj) {
