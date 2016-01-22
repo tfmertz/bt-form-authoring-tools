@@ -251,7 +251,7 @@
 
     $.each(object.fields, function(p, v) {
       var tempForm = $formItem.clone();
-      $('.bfat-field-id', tempForm).val(v.field_id);
+      $('.bfat-field-id', tempForm).val(v.field_order);
       $('.bfat-field-type', tempForm).val(v.field_type);
       $('.bfat-field-label', tempForm).val(v.field_label);
       $('.bfat-field-name', tempForm).val(v.field_name);
